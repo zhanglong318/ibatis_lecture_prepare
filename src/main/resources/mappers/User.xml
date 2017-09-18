@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="com.test.model.User">
+
+    <typeAlias alias="User" type="com.test.model.User"/>
+
+    <select id="getAllUsers" resultClass="User">
+        select * from users
+    </select>
+
+    <select id="getUserById" resultClass="User" parameterClass="int">
+        select * from users where id = #id#
+    </select>
+
+    <insert id="saveUser" parameterClass="User">
+        insert into users values (#id#, #username#, #password#)
+    </insert>
+
+    <update id="updateUser" parameterClass="User">
+        update users set username = #username#, password=#password# where id=#id#
+    </update>
+
+    <delete id="removeUserById" parameterClass="int">
+        delete from users where id=#id#
+    </delete>
+
+</sqlMap>
