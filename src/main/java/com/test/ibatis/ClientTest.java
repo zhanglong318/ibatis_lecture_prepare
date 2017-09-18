@@ -8,6 +8,9 @@ import com.test.model.User;
 import java.io.Reader;
 import java.util.List;
 
+/**
+ * http://imticg.iteye.com/blog/217727
+ */
 public class ClientTest {
 
     public static void main(String[] args) throws Exception {
