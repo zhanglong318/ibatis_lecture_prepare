@@ -3,7 +3,7 @@ package com.test.ibatis;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import com.test.model.User;
+import com.test.domain.User;
 
 import java.io.Reader;
 import java.util.List;
@@ -14,10 +14,9 @@ import java.util.List;
 public class ClientTest {
 
     public static void main(String[] args) throws Exception {
-
         SqlMapClient sqlMapClient = null;
 
-        try (Reader reader = Resources.getResourceAsReader("sqlMapConfig.xml")) {
+        try (Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml")) {
             sqlMapClient = SqlMapClientBuilder.buildSqlMapClient(reader);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -48,6 +47,8 @@ public class ClientTest {
 
         user.setUsername("新用户名");
         user.setPassword("新密码");
+        user.setId(0);
+
         sqlMapClient.update("updateUser", user);
 
         //删除用户的信息

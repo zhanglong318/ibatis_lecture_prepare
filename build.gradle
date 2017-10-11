@@ -8,12 +8,18 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+    maven {
+        url 'http://nexus.tiantong.com/nexus/content/groups/public'
+    }
+
     mavenCentral()
 }
 
 dependencies {
     compile(
             "org.apache.ibatis:ibatis-sqlmap:2.3.4.726",
+            "com.ibatis:ibatis-dao:2.2.0.638",
+            "net.sf.hibernate:hibernate:2.1.8",
             "mysql:mysql-connector-java:5.1.34",
             "cglib:cglib:2.0.2",
             "commons-dbcp:commons-dbcp:1.2.1",
